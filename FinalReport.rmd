@@ -46,7 +46,22 @@ This is the type of categorical problem, with at least one problem with multiple
 
 <!--Graphical results here.  Make sure to show your code.  Provide appropriate labels for axes, giving units if possible, and provide a good title for the graph, too.  Use the graphical results to describe the patterns if any that exist in the data as focused toward the research question. Bottom line is to explain the features of the graph that are relevant to conforming or departing to what is expected by your null hypothesis !-->
 
+```{r}
+dd3 <- mydata %>% group_by(race,cappun) %>% summarize(count=n()) %>% mutate(prcnt=count/sum(count))
 
+
+# the group_by followed by summarize(count=n())
+
+basicC <- ggplot(dd3,aes(x=race,y=count,fill=cappun))
+basicC + geom_bar(stat="identity",position="dodge")
+
+#Now for percentage plot
+
+basicCC <- ggplot(dd3,aes(x=race,y=prcnt*100,fill=cappun)) 
+basicCC + geom_bar(stat="identity", position = "dodge")
+```
+  
+ In this graph, the first slide displays the number of individuals categorized by races, white, black, and other. The white race had the worst with 1500 reports, and the black and other races had less than 250 reports. In the last display the chart shows the percentage of the races in favor of capital punishment. Each category was compared to each other, the white was compared to support versus the opposition of capital punishment and was in favor of capital punishment by approximately 64%. The black race was in opposition, with a much lower percentage of around 57%. The other race was in favor of capital punishment with a near report for its opposition, the support percentage was around 55%.
 
 ## Now with The Most data (fewer variables gives more data points)
 
