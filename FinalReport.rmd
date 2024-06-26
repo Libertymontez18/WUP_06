@@ -85,7 +85,7 @@ In the numerical results we see similar numbers to the master branches results. 
 chisq.test(table2)
 chisqtestGC(table2)
 ```
-`  
+
 ```{r}
 fisherXY(mydata$race, mydata$cappun, printAll= "TRUE")
 ```
